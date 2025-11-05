@@ -1,0 +1,29 @@
+[
+  {
+    "id": "google",
+    "name": "Google",
+    "roles": [
+      "Software Engineer",
+      "Data Analyst",
+      "Product Manager"
+    ]
+  },
+  {
+    "id": "amazon",
+    "name": "Amazon",
+    "roles": [
+      "Software Developer",
+      "Data Scientist",
+      "Operations Manager"
+    ]
+  },
+  {
+    "id": "microsoft",
+    "name": "Microsoft",
+    "roles": [
+      "Product Manager",
+      "Cloud Engineer",
+      "Business Analyst"
+    ]
+  }
+]
