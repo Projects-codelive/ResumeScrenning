@@ -36,7 +36,7 @@ const app = express();
 
 app.use(cors({
 
-origin: 'http://localhost:5173', // Vite default port
+origin: 'https://resumescrenning.onrender.com', // Vite default port
 
 credentials: true,
 
