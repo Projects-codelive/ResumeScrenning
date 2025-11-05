@@ -322,7 +322,7 @@ router.get('/google',
 // Google Authentication Callback Route - This is where Google redirects back to
 router.get('/google/callback',
   passport.authenticate('google', {
-    failureRedirect: `${process.env.CLIENT_URL}/login?error=Google-login-failed`,
+    failureRedirect: `https://resumescrenning.onrender.com/login?error=Google-login-failed`,
     session: false
   }),
   (req, res) => {
@@ -333,7 +333,7 @@ router.get('/google/callback',
     );
     
     // ✅ Redirect to FRONTEND, not backend
-    res.redirect(`${process.env.CLIENT_URL}/profile?token=${token}&first_login=${req.user.isFirstTimeUser}`);
+    res.redirect(`https://resumescrenning.onrender.com/profile?token=${token}&first_login=${req.user.isFirstTimeUser}`);
   }
 );
 
@@ -346,7 +346,7 @@ router.get('/github',
 // GitHub Authentication Callback Route
 router.get('/github/callback',
   passport.authenticate('github', { 
-    failureRedirect: `${process.env.CLIENT_URL}/login?error=GitHub-login-failed`,
+    failureRedirect: `https://resumescrenning.onrender.com/login?error=GitHub-login-failed`,
     session: false
   }),
   (req, res) => {
@@ -355,7 +355,7 @@ router.get('/github/callback',
       process.env.JWT_SECRET,
       { expiresIn: '7d' }
     );
-    res.redirect(`${process.env.CLIENT_URL}/login?token=${token}&first_login=${req.user.isFirstTimeUser}`);
+    res.redirect(`https://resumescrenning.onrender.com/login?token=${token}&first_login=${req.user.isFirstTimeUser}`);
   }
 );
 
