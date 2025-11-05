@@ -320,22 +320,23 @@ router.get('/google',
 );
 
 // Google Authentication Callback Route - This is where Google redirects back to
-router.get('/google/callback', 
-  passport.authenticate('google', { 
+router.get('/google/callback',
+  passport.authenticate('google', {
     failureRedirect: `${process.env.CLIENT_URL}/login?error=Google-login-failed`,
-    session: false // We are using JWT, not sessions
+    session: false
   }),
   (req, res) => {
-    // On successful authentication, req.user is populated by Passport
     const token = jwt.sign(
       { _id: req.user._id, email: req.user.email },
       process.env.JWT_SECRET,
       { expiresIn: '7d' }
     );
-    // Redirect back to the frontend with the token in the URL
-    res.redirect(`${process.env.CLIENT_URL}/login?token=${token}&first_login=${req.user.isFirstTimeUser}`);
+    
+    // ✅ Redirect to FRONTEND, not backend
+    res.redirect(`${process.env.CLIENT_URL}/profile?token=${token}&first_login=${req.user.isFirstTimeUser}`);
   }
 );
+
 
 // GitHub Authentication Route
 router.get('/github',
