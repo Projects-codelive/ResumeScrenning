@@ -89,7 +89,7 @@ module.exports.oauthSuccess = async (req, res) => {
   try {
     if (!req.user) {
       console.log('No user found in request');
-      return res.redirect('http://localhost:5173/login?error=oauth_failed');
+      return res.redirect('https://resumescrenning.onrender.com/login?error=oauth_failed');
     }
 
     const user = req.user;
@@ -123,10 +123,10 @@ module.exports.oauthSuccess = async (req, res) => {
       hasGithubId: !!user.githubId
     });
 
-    res.redirect(`http://localhost:5173/profile?token=${token}&first_login=true`);
+    res.redirect(`https://resumescrenning.onrender.com/profile?token=${token}&first_login=true`);
   } catch (error) {
     console.error('OAuth success error:', error);
-    res.redirect('http://localhost:5173/login?error=oauth_failed');
+    res.redirect('https://resumescrenning.onrender.com/login?error=oauth_failed');
   }
 };
 
